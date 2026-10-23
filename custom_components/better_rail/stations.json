@@ -1,0 +1,347 @@
+[
+ {
+  "id": "3700",
+  "he": "תל אביב - סבידור מרכז",
+  "en": "Tel Aviv - Savidor Center"
+ },
+ {
+  "id": "3500",
+  "he": "הרצליה",
+  "en": "Herzliya"
+ },
+ {
+  "id": "3400",
+  "he": "בית יהושע",
+  "en": "Bet Yehoshu'a"
+ },
+ {
+  "id": "3300",
+  "he": "נתניה",
+  "en": "Netanya"
+ },
+ {
+  "id": "3100",
+  "he": "חדרה - מערב",
+  "en": "Hadera-West"
+ },
+ {
+  "id": "2800",
+  "he": "בנימינה",
+  "en": "Binyamina"
+ },
+ {
+  "id": "2820",
+  "he": "קיסריה - פרדס חנה",
+  "en": "Caesarea-Pardes Hana"
+ },
+ {
+  "id": "2500",
+  "he": "עתלית",
+  "en": "Atlit"
+ },
+ {
+  "id": "2200",
+  "he": "חיפה - בת גלים",
+  "en": "Haifa - Bat Galim"
+ },
+ {
+  "id": "1300",
+  "he": "חוצות המפרץ",
+  "en": "Hutzot HaMifratz"
+ },
+ {
+  "id": "700",
+  "he": "קריית חיים",
+  "en": "Kiryat Hayim"
+ },
+ {
+  "id": "1400",
+  "he": "קריית מוצקין",
+  "en": "Kiryat Motzkin"
+ },
+ {
+  "id": "1500",
+  "he": "עכו",
+  "en": "Ako"
+ },
+ {
+  "id": "2300",
+  "he": "חיפה - חוף הכרמל",
+  "en": "Haifa - Hof HaKarmel"
+ },
+ {
+  "id": "8700",
+  "he": "כפר סבא - נורדאו",
+  "en": "Kfar Sava - Nordau"
+ },
+ {
+  "id": "1600",
+  "he": "נהריה",
+  "en": "Nahariya"
+ },
+ {
+  "id": "6300",
+  "he": "בית שמש",
+  "en": "Bet Shemesh"
+ },
+ {
+  "id": "7000",
+  "he": "קריית גת",
+  "en": "Kiryat Gat"
+ },
+ {
+  "id": "5000",
+  "he": "לוד",
+  "en": "Lod"
+ },
+ {
+  "id": "7300",
+  "he": "באר שבע - צפון/אוניברסיטה",
+  "en": "Be'er Sheva - North/University"
+ },
+ {
+  "id": "4800",
+  "he": "כפר חב\"ד",
+  "en": "Kfar Habad"
+ },
+ {
+  "id": "4600",
+  "he": "תל אביב - השלום",
+  "en": "Tel Aviv - HaShalom"
+ },
+ {
+  "id": "2100",
+  "he": "חיפה - מרכז השמונה",
+  "en": "Haifa Center - HaShmona"
+ },
+ {
+  "id": "5010",
+  "he": "רמלה",
+  "en": "Ramla"
+ },
+ {
+  "id": "8800",
+  "he": "ראש העין - צפון",
+  "en": "Rosh Ha'Ayin - North"
+ },
+ {
+  "id": "5300",
+  "he": "באר יעקב",
+  "en": "Be'er Ya'akov"
+ },
+ {
+  "id": "5200",
+  "he": "רחובות",
+  "en": "Rehovot"
+ },
+ {
+  "id": "5410",
+  "he": "יבנה מזרח",
+  "en": "Yavne-East"
+ },
+ {
+  "id": "9100",
+  "he": "ראשון לציון - הראשונים",
+  "en": "Rishon LeTsiyon - HaRishonim"
+ },
+ {
+  "id": "5800",
+  "he": "אשדוד עד הלום",
+  "en": "Ashdod - Ad Halom"
+ },
+ {
+  "id": "4250",
+  "he": "פתח תקווה - סגולה",
+  "en": "Petah Tikva - Segula"
+ },
+ {
+  "id": "4100",
+  "he": "בני ברק",
+  "en": "Bnei Brak"
+ },
+ {
+  "id": "3600",
+  "he": "תל אביב - אוניברסיטה",
+  "en": "Tel Aviv - University"
+ },
+ {
+  "id": "7320",
+  "he": "באר שבע - מרכז",
+  "en": "Be'er Sheva - Center"
+ },
+ {
+  "id": "1220",
+  "he": "מרכזית המפרץ (לב המפרץ)",
+  "en": "HaMifrats Central Station"
+ },
+ {
+  "id": "4900",
+  "he": "תל אביב - ההגנה",
+  "en": "Tel Aviv - HaHagana"
+ },
+ {
+  "id": "8600",
+  "he": "נמל תעופה בן גוריון",
+  "en": "Ben Gurion Airport"
+ },
+ {
+  "id": "5900",
+  "he": "אשקלון",
+  "en": "Ashkelon"
+ },
+ {
+  "id": "7500",
+  "he": "דימונה",
+  "en": "Dimona"
+ },
+ {
+  "id": "9200",
+  "he": "הוד השרון - סוקולוב",
+  "en": "Hod HaSharon - Sokolov"
+ },
+ {
+  "id": "4170",
+  "he": "פתח תקווה  - קריית אריה",
+  "en": "Petah Tikva - Kiryat Arye"
+ },
+ {
+  "id": "5150",
+  "he": "לוד גני אביב",
+  "en": "Lod - Gane Aviv"
+ },
+ {
+  "id": "8550",
+  "he": "להבים - רהט",
+  "en": "Lehavim - Rahat"
+ },
+ {
+  "id": "300",
+  "he": "פאתי מודיעין",
+  "en": "Pa'ate Modi'in"
+ },
+ {
+  "id": "400",
+  "he": "מודיעין - מרכז",
+  "en": "Modi'in - Center"
+ },
+ {
+  "id": "4640",
+  "he": "צומת חולון",
+  "en": "Holon Junction"
+ },
+ {
+  "id": "4660",
+  "he": "חולון - וולפסון",
+  "en": "Holon - Wolfson"
+ },
+ {
+  "id": "4680",
+  "he": "בת ים - יוספטל",
+  "en": "Bat Yam - Yoseftal"
+ },
+ {
+  "id": "4690",
+  "he": "בת ים - קוממיות",
+  "en": "Bat Yam - Komemiyut"
+ },
+ {
+  "id": "9800",
+  "he": "ראשון לציון - משה דיין",
+  "en": "Rishon LeTsiyon - Moshe Dayan"
+ },
+ {
+  "id": "9000",
+  "he": "יבנה מערב",
+  "en": "Yavne - West"
+ },
+ {
+  "id": "9600",
+  "he": "שדרות",
+  "en": "Sderot"
+ },
+ {
+  "id": "9650",
+  "he": "נתיבות",
+  "en": "Netivot"
+ },
+ {
+  "id": "9700",
+  "he": "אופקים",
+  "en": "Ofakim"
+ },
+ {
+  "id": "3310",
+  "he": "נתניה - ספיר",
+  "en": "Netanya - Sapir"
+ },
+ {
+  "id": "1240",
+  "he": "יקנעם - כפר יהושע",
+  "en": "Yokne'am - Kfar Yehoshu'a"
+ },
+ {
+  "id": "1250",
+  "he": "מגדל העמק - כפר ברוך",
+  "en": "Migdal Ha'emek - Kfar Barukh"
+ },
+ {
+  "id": "1260",
+  "he": "עפולה ר. איתן",
+  "en": "Afula R.Eitan"
+ },
+ {
+  "id": "1280",
+  "he": "בית שאן",
+  "en": "Beit She'an"
+ },
+ {
+  "id": "1820",
+  "he": "אחיהוד",
+  "en": "Ahihud"
+ },
+ {
+  "id": "1840",
+  "he": "כרמיאל",
+  "en": "Karmiel"
+ },
+ {
+  "id": "2940",
+  "he": "רעננה מערב",
+  "en": "Ra'anana West"
+ },
+ {
+  "id": "2960",
+  "he": "רעננה דרום",
+  "en": "Ra'anana South"
+ },
+ {
+  "id": "6150",
+  "he": "קריית מלאכי - יואב",
+  "en": "Kiryat Malakhi – Yoav"
+ },
+ {
+  "id": "680",
+  "he": "ירושלים - יצחק נבון",
+  "en": "Jerusalem - Yitzhak Navon"
+ },
+ {
+  "id": "6900",
+  "he": "מזכרת בתיה",
+  "en": "Mazkeret Batya"
+ },
+ {
+  "id": "4310",
+  "he": "טירה - כוכב יאיר",
+  "en": "Tira - Kokhav Ya'ir"
+ },
+ {
+  "id": "4300",
+  "he": "שומרון - טייבה",
+  "en": "Shomron – Tayyiba"
+ },
+ {
+  "id": "3900",
+  "he": "חדרה - מזרח",
+  "en": "Hadera - East"
+ }
+]

@@ -1,0 +1,51 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "Service is already configured"
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "same_station": "The start and end stations must be different."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "from": "Start station",
+          "to": "End station"
+        },
+        "description": "Choose the start and end station of your connection.",
+        "title": "Better Rail"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "departure": {
+        "name": "Departure{suffix}"
+      },
+      "expected_departure": {
+        "name": "Expected departure{suffix}"
+      },
+      "arrival": {
+        "name": "Arrival{suffix}"
+      },
+      "departure_delay": {
+        "name": "Departure delay{suffix}"
+      },
+      "platform": {
+        "name": "Platform{suffix}"
+      },
+      "train_number": {
+        "name": "Train number{suffix}"
+      },
+      "trains": {
+        "name": "Trains{suffix}"
+      }
+    },
+    "binary_sensor": {
+      "cancelled": {
+        "name": "Cancelled{suffix}"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "entity": {
+    "sensor": {
+      "departure": {"default": "mdi:bus-clock"},
+      "expected_departure": {"default": "mdi:train-variant"},
+      "arrival": {"default": "mdi:map-clock"},
+      "departure_delay": {"default": "mdi:timeline-clock"},
+      "platform": {"default": "mdi:bus-stop-uncovered"},
+      "train_number": {"default": "mdi:numeric"},
+      "trains": {"default": "mdi:train"}
+    },
+    "binary_sensor": {
+      "cancelled": {"default": "mdi:train-car-off"}
+    }
+  }
+}
