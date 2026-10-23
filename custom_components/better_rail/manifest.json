@@ -1,7 +1,12 @@
 {
   "domain": "better_rail",
   "name": "Better Rail",
-  "codeowners": ["@ronshapiro"],
+  "categories": [
+    "vehicles_transport.public_transport"
+  ],
+  "codeowners": [
+    "@ronshapiro"
+  ],
   "config_flow": true,
   "documentation": "https://github.com/ronshapiro/better-rail-home-assistant",
   "integration_type": "service",
