@@ -1,9 +1,6 @@
 {
   "domain": "better_rail",
   "name": "Better Rail",
-  "categories": [
-    "vehicles_transport.public_transport"
-  ],
   "codeowners": [
     "@ronshapiro"
   ],
