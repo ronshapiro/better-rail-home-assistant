@@ -43,7 +43,22 @@ For each of the next three departures (the first has no suffix, the others end i
 | Cancelled | `on` if the train has been cancelled (binary sensor) |
 
 A train stays in the list until its scheduled departure plus its delay has passed. Cancelled
-trains remain listed so you can see the cancellation. Data refreshes every 90 seconds.
+trains remain listed so you can see the cancellation. 
+
+### Refresh rate
+
+Polling adapts to the next departure, so delays are caught quickly when it matters:
+
+| Situation | Refresh every |
+| --- | --- |
+| Next train more than 3 hours away (or none listed) | 15 minutes |
+| Within 3 hours | 5 minutes |
+| Within 1 hour | 1 minute |
+| Within 15 minutes of the scheduled departure | 30 seconds |
+| Any of the next trains within the hour is delayed, or is waiting past its scheduled time | 30 seconds |
+
+The interval never overshoots the point where the next tier begins, and delayed trains keep the fast
+rate until they have actually left, so automations can react to delay changes within about 30 seconds.
 
 ## Example automation
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import timedelta
+from datetime import datetime, timedelta
 import logging
 
 from homeassistant.config_entries import ConfigEntry
@@ -12,14 +12,22 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 from homeassistant.util import dt as dt_util
 
 from .api import ISRAEL_TZ, BetterRailApi, BetterRailError, Journey
-from .const import DEFAULT_SCAN_INTERVAL, DEPARTURES_COUNT, DOMAIN
+from .const import (
+    DELAY_WATCH_WINDOW,
+    DEPARTURES_COUNT,
+    DOMAIN,
+    SCAN_INTERVAL_FAR,
+    SCAN_INTERVAL_IDLE,
+    SCAN_INTERVAL_IMMINENT,
+    SCAN_INTERVAL_SOON,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
 type BetterRailConfigEntry = ConfigEntry[BetterRailCoordinator]
 
 
-def is_upcoming(journey: Journey, now) -> bool:
+def is_upcoming(journey: Journey, now: datetime) -> bool:
     """Return whether the train has not left its origin yet.
 
     A reported delay pushes back the moment the train actually leaves, so the
@@ -28,6 +36,42 @@ def is_upcoming(journey: Journey, now) -> bool:
     before its scheduled time.
     """
     return journey.departure + timedelta(minutes=max(journey.delay, 0)) >= now
+
+
+# (time before the scheduled departure, polling interval from then on)
+_TIERS = (
+    (timedelta(hours=3), SCAN_INTERVAL_FAR),
+    (timedelta(hours=1), SCAN_INTERVAL_SOON),
+    (timedelta(minutes=15), SCAN_INTERVAL_IMMINENT),
+)
+_MIN_INTERVAL = timedelta(seconds=15)
+
+
+def next_update_interval(journeys: list[Journey], now: datetime) -> timedelta:
+    """Choose how long to wait before the next poll.
+
+    Polling speeds up as the next scheduled departure approaches, and stays
+    fast while that train (or any other within the next hour) is delayed or is
+    still waiting past its scheduled time, so delay changes are picked up
+    promptly. The wait never overshoots the moment the next tier begins.
+    """
+    if not journeys:
+        return SCAN_INTERVAL_IDLE
+
+    for journey in journeys:
+        until = journey.departure - now
+        if (journey.delay or until <= timedelta(0)) and until <= DELAY_WATCH_WINDOW:
+            return SCAN_INTERVAL_IMMINENT
+
+    until_next = journeys[0].departure - now
+    interval = SCAN_INTERVAL_IDLE
+    for threshold, tier_interval in _TIERS:
+        if until_next <= threshold:
+            interval = tier_interval
+    for threshold, _ in _TIERS:
+        if until_next > threshold:
+            interval = min(interval, until_next - threshold)
+    return max(interval, _MIN_INTERVAL)
 
 
 class BetterRailCoordinator(DataUpdateCoordinator[list[Journey]]):
@@ -48,7 +92,7 @@ class BetterRailCoordinator(DataUpdateCoordinator[list[Journey]]):
             _LOGGER,
             config_entry=config_entry,
             name=DOMAIN,
-            update_interval=DEFAULT_SCAN_INTERVAL,
+            update_interval=SCAN_INTERVAL_IMMINENT,
         )
         self._api = BetterRailApi(async_get_clientsession(hass))
         self._start = start
@@ -89,4 +133,6 @@ class BetterRailCoordinator(DataUpdateCoordinator[list[Journey]]):
             if key not in seen:
                 seen.add(key)
                 result.append(journey)
-        return result[:DEPARTURES_COUNT]
+        result = result[:DEPARTURES_COUNT]
+        self.update_interval = next_update_interval(result, now)
+        return result

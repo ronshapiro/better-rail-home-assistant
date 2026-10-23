@@ -175,3 +175,46 @@ async def test_config_flow_cannot_connect(
         result["flow_id"], {"from": "4600", "to": "6900"}
     )
     assert result["errors"] == {"base": "cannot_connect"}
+
+
+def _j(minutes_from_now, delay=0):
+    from datetime import timedelta
+
+    from custom_components.better_rail.api import Journey
+
+    return Journey(NOW + timedelta(minutes=minutes_from_now), None, delay, "1", "1", 1, False)
+
+
+NOW = datetime(2026, 10, 23, 12, 0, tzinfo=ISRAEL_TZ)
+
+
+@pytest.mark.parametrize(
+    ("journeys", "expected_seconds"),
+    [
+        ([], 900),
+        ([_j(600)], 900),
+        ([_j(190)], 600),  # 10 min until the 3h tier begins
+        ([_j(120)], 300),
+        ([_j(90)], 300),
+        ([_j(65)], 300),  # 5 min until the 1h tier begins
+        ([_j(40)], 60),
+        ([_j(20)], 60),
+        ([_j(10)], 30),
+        ([_j(-3, delay=7)], 30),  # delayed, still waiting
+        ([_j(30), _j(45, delay=4)], 30),  # delay on a later train within the hour
+        ([_j(150), _j(200, delay=4)], 300),  # delay too far out to matter yet
+        ([_j(-2)], 30),  # past scheduled time without a delay report
+    ],
+)
+def test_next_update_interval(journeys, expected_seconds) -> None:
+    from custom_components.better_rail.coordinator import next_update_interval
+
+    assert next_update_interval(journeys, NOW).total_seconds() == expected_seconds
+
+
+async def test_coordinator_applies_interval(
+    hass: HomeAssistant, aioclient_mock: AiohttpClientMocker, freezer: FrozenDateTimeFactory
+) -> None:
+    """At 12:10 the delayed 12:20 train keeps polling at 30 seconds."""
+    entry = await _setup(hass, aioclient_mock, freezer)
+    assert entry.runtime_data.update_interval.total_seconds() == 30
